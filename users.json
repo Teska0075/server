@@ -1,0 +1,18 @@
+{
+  "users": [
+    {
+      "id": "b424b982-3bf6-469b-a426-f1fbb532cf59",
+      "name": "Tushig",
+      "role": "admin",
+      "email": "teska@gmail.com",
+      "password": "$2b$10$/jZo0wvr5fsa9TlXS5pmxOnlVHN8kTnjn0yV7Jrr9a2sh8z2eaRuu"
+    },
+    {
+      "id": "ec0d3951-7a51-46c8-a83b-a68bdaebc1a0",
+      "name": "Ganhulug",
+      "role": "admin",
+      "email": "ganaa@gmail.com",
+      "password": "$2b$10$.6wRm0bmF60OcJHSUlCAUORnIhyTBrQax.g7jJ.ru95VHCBbglL1K"
+    }
+  ]
+}
