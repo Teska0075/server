@@ -5,7 +5,7 @@ const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 const bcrypt = require("bcrypt");
 
-const port = 8001;
+const port = 8000;
 
 server.use(cors());
 server.use(express.json());
@@ -15,7 +15,7 @@ server.get("/", (req, res) => {
 });
 
 server.post("/signup", (req, res) => {
-  const { name, role, email, password } = req.body;
+  const { name, role="user", email, password } = req.body;
   const data = fs.readFileSync("users.json", "utf-8");
   const parsedData = JSON.parse(data);
   const id = uuidv4();
@@ -32,14 +32,14 @@ server.post("/signup", (req, res) => {
 
   parsedData.users.push(newUser);
   fs.writeFileSync("users.json", JSON.stringify(parsedData));
-  res.status(201).json({ message: "New User " });
+  res.status(201).json({ message: "New User Added Successfully " });
 });
 
 server.post("/signin", (req, res) => {
-  const { id, email, password } = req.body;
+  const { email, password } = req.body;
   const data = fs.readFileSync("users.json", "utf-8");
   const parsedData = JSON.parse(data);
-  const findUser = parsedData.users.find((user) => user.id === id);
+  const findUser = parsedData.users.find((user) => user.email === email);
   if (!findUser) {
     res.status(401).json({ message: "User not found" });
   }
