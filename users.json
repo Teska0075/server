@@ -1,1 +1,25 @@
-{"users":[{"id":"b424b982-3bf6-469b-a426-f1fbb532cf59","name":"Tushig","role":"admin","email":"teska@gmail.com","password":"$2b$10$/jZo0wvr5fsa9TlXS5pmxOnlVHN8kTnjn0yV7Jrr9a2sh8z2eaRuu"},{"id":"ec0d3951-7a51-46c8-a83b-a68bdaebc1a0","name":"Ganhulug","role":"admin","email":"ganaa@gmail.com","password":"$2b$10$.6wRm0bmF60OcJHSUlCAUORnIhyTBrQax.g7jJ.ru95VHCBbglL1K"},{"id":"2c3926b8-2577-49b0-9cee-f57847a8f745","name":"Tushigee","role":"user","email":"tushig@gmail.com","password":"$2b$10$klOCcVGOoID2bTQ/YB//Luad8laK7LPBtzGtUm8b7GtCiUU.1QqPe"}]}
+{
+  "users": [
+    {
+      "id": "2c3926b8-2577-49b0-9cee-f57847a8f745",
+      "name": "Tushigee",
+      "role": "user",
+      "email": "tushig@gmail.com",
+      "password": "$2b$10$klOCcVGOoID2bTQ/YB//Luad8laK7LPBtzGtUm8b7GtCiUU.1QqPe"
+    },
+    {
+      "id": "b5a635cd-43af-47ea-8912-6f9e69a3750d",
+      "name": "Shilen Boodog",
+      "role": "user",
+      "email": "ganaa@gmail.com",
+      "password": "$2b$10$85Wf0EHTvwTty2oSKfyujuTRn7zNpKa/VUSbLQQrdlPXBMeaXqj1K"
+    },
+    {
+      "id": "145a9533-2d90-4de9-b3cc-021c2c07f680",
+      "name": "Enerel",
+      "role": "user",
+      "email": "enerel@gmail.com",
+      "password": "$2b$10$QECWt6Dtqzv9SYL7PcRBAOpqiByjnql.RcsanXvNAr.Tw5mcv3OKu"
+    }
+  ]
+}
