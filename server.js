@@ -14,8 +14,10 @@ server.get("/", (req, res) => {
   res.status(200).json({ message: "Hello Express Server" });
 });
 
+//Start of User
+
 server.post("/signup", (req, res) => {
-  const { name, role="user", email, password } = req.body;
+  const { name, role = "user", email, password } = req.body;
   const data = fs.readFileSync("users.json", "utf-8");
   const parsedData = JSON.parse(data);
   const id = uuidv4();
@@ -94,6 +96,37 @@ server.delete("users/:id", (req, res) => {
   res.status(201).json({ message: `${id}: User deleted` });
 });
 
+// End of User
+// Start of Category
+
+server.post("/categories", (req, res) => {
+  try {
+    const content = fs.readFileSync("categories.json", "utf-8");
+    const data = JSON.parse(content);
+    const newData = { ...req.body };
+    data.categories.push(newData);
+    fs.writeFileSync("categories.json", JSON.stringify(data));
+    res.status(201).json({ message: "Category added", data: newData });
+  } catch (err) {
+    return res.status(400).json({ message: err.message });
+  }
+
+  res.json();
+});
+
+server.get("/categories", (req, res) => {
+  try {
+    const categoriesData = fs.readFileSync("categories.json", "utf-8");
+    const data = JSON.parse(categoriesData);
+    res.status(200).json({ message: "success", data });
+  } catch (err) {
+    return res.status(400).json({ message: err.message });
+  }
+
+  res.json();
+});
+
+// End of Category
 server.listen(port, () => {
   console.log(`Server aslaa port ${port}`);
 });
