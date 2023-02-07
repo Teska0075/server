@@ -1,1 +1,6 @@
-{"categories":[{"id":"001","title":"Tokyo","imgURL":"tokyo.png"}]}
+{
+  "categories": [
+    { "id": "002", "title": "UB", "imgURL": "img.png" },
+    { "id": "001", "title": "Tokyo", "imgURL": "img.png" }
+  ]
+}
