@@ -1,6 +1,6 @@
 {
   "categories": [
-    { "id": "002", "title": "UB", "imgURL": "img.png" },
+    { "id": "002", "title": "Frankfurt", "imgURL": "img.png" },
     { "id": "001", "title": "Tokyo", "imgURL": "img.png" }
   ]
 }
