@@ -1,0 +1,40 @@
+{
+  "wishlist": [
+    {
+      "img": "https://images.unsplash.com/photo-1590073242678-70ee3fc28e8e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2321&q=80",
+      "name": "Swissotel Bangkok Ratchada (SHA Extra Plus)",
+      "price": "150",
+      "id": "001"
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1496417263034-38ec4f0b665a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2371&q=80",
+      "name": "Bangkok Marriott Marquis Queen’s Park (SHA Plus+)",
+      "price": "220",
+      "id": "002"
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1618773928121-c32242e63f39?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80",
+      "name": "Bangkok Marriott Marquis Queen’s Park (SHA Plus+)",
+      "price": "450",
+      "id": "003"
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1349&q=80",
+      "name": "Bangkok Marriott Marquis Queen’s Park (SHA Plus+)",
+      "price": "810",
+      "id": "004"
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80",
+      "name": "Bangkok Marriott Marquis Queen’s Park (SHA Plus+)",
+      "price": "550",
+      "id": "005"
+    },
+    {
+      "img": "https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80",
+      "name": "Bangkok Marriott Marquis Queen’s Park (SHA Plus+)",
+      "price": "350",
+      "id": "00"
+    }
+  ]
+}
