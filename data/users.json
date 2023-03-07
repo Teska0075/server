@@ -3,30 +3,30 @@
     {
       "id": "2c3926b8-2577-49b0-9cee-f57847a8f745",
       "name": "Tushigee",
-      "role": "user",
       "email": "tushig@gmail.com",
-      "password": "$2b$10$klOCcVGOoID2bTQ/YB//Luad8laK7LPBtzGtUm8b7GtCiUU.1QqPe"
+      "password": "$2b$10$klOCcVGOoID2bTQ/YB//Luad8laK7LPBtzGtUm8b7GtCiUU.1QqPe",
+      "role": "user"
     },
     {
       "id": "145a9533-2d90-4de9-b3cc-021c2c07f680",
       "name": "Enerel",
-      "role": "user",
       "email": "enerel@gmail.com",
-      "password": "$2b$10$QECWt6Dtqzv9SYL7PcRBAOpqiByjnql.RcsanXvNAr.Tw5mcv3OKu"
+      "password": "$2b$10$QECWt6Dtqzv9SYL7PcRBAOpqiByjnql.RcsanXvNAr.Tw5mcv3OKu",
+      "role": "user"
     },
     {
       "id": "cabd08c9-aece-44f0-baad-aabbd80d7607",
       "name": "Ganhulug",
-      "role": "sidebar creator",
       "email": "ganaa@gmail.com",
-      "password": "$2b$10$iKX/jo8gNCDJyIOxWAJIXenEGhxeldcxp3pOtFBv4LCVbZ90FjsfG"
+      "password": "$2b$10$iKX/jo8gNCDJyIOxWAJIXenEGhxeldcxp3pOtFBv4LCVbZ90FjsfG",
+      "role": "sidebr creator"
     },
     {
       "id": "94d989e8-913b-4a5e-89c2-0f180d2d4b29",
       "name": "Taamii",
-      "role": "user",
       "email": "taamii@gmail.com",
-      "password": "$2b$10$VVZqc3ww4pK.zveTsgPQfuQ/KXcL/i6bdrIsGv499D4CJxQtSzFHC"
+      "password": "$2b$10$VVZqc3ww4pK.zveTsgPQfuQ/KXcL/i6bdrIsGv499D4CJxQtSzFHC",
+      "role": "user"
     }
   ]
 }

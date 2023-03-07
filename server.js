@@ -57,13 +57,13 @@ server.put("/:id", async (req, res) => {
   const body = req.body;
 
   const keys = Object.keys(body);
-  const values = Object.values(body);
+  // const values = Object.values(body);
 
-  const map = keys.map((key) => `${key}=${body[key]}`);
+  const map = keys.map((key) => `${key}="${body[key]}"`);
   const join = map.join();
 
   connection.query(
-    `UPDATE azure_user SET ${keys}=${values} WHERE a_id=${id}`,
+    `UPDATE azure_user SET ${join} WHERE a_id=${id}`,
     (err, result) => {
       if (err) {
         res.status(400).json({ message: err.message });
@@ -94,7 +94,7 @@ server.post("/", async (req, res) => {
   // const ovog = req.body.ovog;
   console.log(id);
   connection.query(
-    `INSERT INTO azure_user(a_id,name,ovog) VALUE ('${id}','${name}','${ovog}')`,
+    `INSERT INTO users(id,name,email,password,role) VALUE ('${id}','${name}','${email}','${password}','${role}')`,
     (err, result) => {
       if (err) {
         res.status(400).json({ message: err.message });
