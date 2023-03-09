@@ -7,6 +7,7 @@ const {
   getUserById,
   putUserById,
   delUserById,
+  createUser,
 } = require("../controller/users");
 
 const router = Router();
@@ -14,6 +15,7 @@ const router = Router();
 router.get("/", getUsers);
 
 router
+  .post("/", createUser)
   .get("/:id", getUserById)
   .put("/:id", putUserById)
   .delete("/:id", delUserById);
