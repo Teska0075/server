@@ -54,7 +54,6 @@ server.put("/:id", async (req, res) => {
   const body = req.body;
 
   const keys = Object.keys(body);
-  // const values = Object.values(body);
 
   const map = keys.map((key) => `${key}="${body[key]}"`);
   const join = map.join();
@@ -72,17 +71,17 @@ server.put("/:id", async (req, res) => {
   );
 });
 
-server.delete("/:id", async (req, res) => {
-  const { id } = req.params;
-  connection.query(`DELETE FROM azure_user WHERE a_id=${id}`, (err, result) => {
-    if (err) {
-      res.status(400).json({ message: err.message });
-      return;
-    }
+// server.delete("/:id", async (req, res) => {
+//   const { id } = req.params;
+//   connection.query(`DELETE FROM azure_user WHERE a_id=${id}`, (err, result) => {
+//     if (err) {
+//       res.status(400).json({ message: err.message });
+//       return;
+//     }
 
-    res.status(200).json({ message: "Amjilttai", data: result });
-  });
-});
+//     res.status(200).json({ message: "Amjilttai", data: result });
+//   });
+// });
 
 // server.post("/", async (req, res) => {
 //   const { id, name, ovog } = req.body;
