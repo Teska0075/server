@@ -1,26 +1,30 @@
-const fs = require("fs");
-const connection = require("../config/db");
 const bcrypt = require("bcrypt");
-
-const filePath = "./data/users.json";
+const connection = require("../config/db");
+const convertData = require("../utils/convertedData");
 
 const getUsers = (req, res) => {
-  const users = fs.readFile(filePath, "utf-8", (err, data) => {
+  const query = `SELECT * FROM users`;
+
+  connection.query(query, (err, result) => {
     if (err) {
-      console.log("There is an error!!!");
+      res.status(400).json({ error: err.message });
       return;
     }
-    const parsedData = JSON.parse(data);
-    res.status(201).json({ users: parsedData.users });
+    res.status(200).json({ usersData: result });
   });
 };
 
 const getUserById = (req, res) => {
   const { id } = req.params;
-  const data = fs.readFileSync(filePath, "utf-8");
-  const parsedData = JSON.parse(data);
-  const user = parsedData.users.find((el) => el.id === id);
-  res.status(200).json({ user });
+  const query = `SELECT * FROM users WHERE id=${id}`;
+
+  connection.query(query, (err, result) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+      return;
+    }
+    res.status(200).json({ userData: result });
+  });
 };
 
 const createUser = (req, res) => {
@@ -45,60 +49,36 @@ const createUser = (req, res) => {
   );
 };
 
-// const putUserById = (req,res) => {
-//   const {id} = req.params;
-//   const { name, email, password, phoneNumber,profileimg } = req.body;
-
-//   const query = `UPDATE users (role, name, email, password, phone_number, profileimg) SET (?,?,?,?,?,?)`;
-
-//   connection.query(query,[name,email,password,phoneNumber,profileimg],(err,result) => {
-//     if (err) {
-//       res.status(400).json({ error: err.message });
-//       return;
-//     }
-//     res.status(200).json({message:`${id} id-тай хэрэглэгчийн мэдээлэл амжилттай шинэчлэгдлээ`})
-//   })
-
-// }
-
-const putUserById = (req,res) => {
+const putUserById = (req, res) => {
   const { id } = req.params;
   const body = req.body;
 
-  const keys = Object.keys(body);
+  const parsedData = convertData(body);
 
-  const map = keys.map((key) => `${key}="${body[key]}"`);
-  const join = map.join();
+  const query = `UPDATE users SET ${parsedData} WHERE id=${id}`;
 
-  const query= `UPDATE users SET ${join} WHERE id=${id}`
-
-  connection.query(query
-    ,
-    (err, result) => {
-      if (err) {
-        res.status(400).json({ message: err.message });
-        return;
-      }
-
-      res.status(200).json({ message: "Amjilttai", data: result });
-    }
-  );
-  
-}
-
-const delUserById = (req,res) => {
-  const {id} = req.params;
-
-  const query = `DELETE FROM users WHERE id=${id}`;
-  connection.query(query,(err,result) => {
-    if(err){
-      res.status(400).json({error: err.message});
+  connection.query(query, (err, result) => {
+    if (err) {
+      res.status(400).json({ message: err.message });
       return;
     }
-    res.status(200).json({message:`${id} id-тай хэрэглэгч устлаа!`})
-  })
-}
 
+    res.status(200).json({ message: "Amjilttai", data: result });
+  });
+};
+
+const delUserById = (req, res) => {
+  const { id } = req.params;
+
+  const query = `DELETE FROM users WHERE id=${id}`;
+  connection.query(query, (err, result) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+      return;
+    }
+    res.status(200).json({ message: `${id} id-тай хэрэглэгч устлаа!` });
+  });
+};
 
 // const putUserById = (req, res) => {
 //   const { id } = req.params;

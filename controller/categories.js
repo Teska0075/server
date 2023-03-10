@@ -1,58 +1,63 @@
 const fs = require("fs");
+const { resourceLimits } = require("worker_threads");
+const connection = require("../config/db");
+const convertData = require("../utils/convertedData");
 
 const getCategory = (req, res) => {
-  try {
-    const categoriesData = fs.readFileSync("./data/categories.json", "utf-8");
-    const data = JSON.parse(categoriesData);
-    res.status(200).json({ message: "success", data });
-  } catch (err) {
-    return res.status(400).json({ message: err.message });
-  }
+  const query = "SELECT * FROM categories";
 
-  res.json();
+  connection.query(query, (err, result) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+      return;
+    }
+    res.status(200).json({ categories: result });
+  });
 };
-const postCategory = (req, res) => {
-  try {
-    const content = fs.readFileSync("categories.json", "utf-8");
-    const data = JSON.parse(content);
-    const newData = { ...req.body };
-    data.categories.push(newData);
-    fs.writeFileSync("categories.json", JSON.stringify(data));
-    res.status(201).json({ message: "Category added", data: newData });
-  } catch (err) {
-    return res.status(400).json({ message: err.message });
-  }
 
-  res.json();
+const postCategory = (req, res) => {
+  const { title, imageUrl, desc, agent_id } = req.body;
+
+  const query =
+    "INSERT INTO categories (id, title,image,description,agent_id) VALUES(null, ?, ?, ?, ?)";
+  connection.query(query, [title, imageUrl, desc, agent_id], (err, result) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+      return;
+    }
+    res.status(201).json({ message: "Шинэ категор амжилттай бүртгэгдлээ." });
+  });
 };
 
 const getCategoryById = (req, res) => {
-  try {
-    const { id } = req.params;
-    const categoriesData = fs.readFileSync("categories.json", "utf-8");
-    const data = JSON.parse(categoriesData);
-    const category = data.categories.find((el) => el.id === id);
-    res.status(201).json({ category });
-  } catch (err) {
-    return res.status(400).json({ message: err.message });
-  }
+  const { id } = req.params;
+  const query = `SELECT * FROM categories WHERE id=${id}`;
+
+  connection.query(query, (err, result) => {
+    if (err) {
+      res.status(400).json({ error: err.message });
+      return;
+    }
+    res.status(200).json({ category: result });
+  });
 };
 
 const putCategoryById = (req, res) => {
-  try {
-    const { id } = req.params;
-    const { title } = req.body;
-    const categoriesData = fs.readFileSync("categories.json", "utf-8");
-    const data = JSON.parse(categoriesData);
-    const findIndex = data.categories.findIndex((el) => el.id === id);
-    data.categories[findIndex].title = title;
-    fs.writeFileSync("categories.json", JSON.stringify(data));
-    res
-      .status(201)
-      .json({ message: `${id}: Category title updated to ${title}` });
-  } catch (err) {
-    return res.status(400).json({ message: err.message });
-  }
+  const { id } = req.params;
+  const body = req.body;
+
+  const parsedData = convertData(body);
+
+  const query = `UPDATE categories SET ${parsedData} WHERE id=${id}`;
+
+  connection.query(query, (err, result) => {
+    if (err) {
+      res.status(400).json({ message: err.message });
+      return;
+    }
+
+    res.status(200).json({ message: `${id} id-тай категор шинэчл` });
+  });
 };
 
 const delCategoryById = (req, res) => {
