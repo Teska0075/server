@@ -4,6 +4,7 @@ const connection = require("./config/db");
 
 const usersRoute = require("./routes/users");
 const categoriesRoute = require("./routes/categories");
+const travelRoute = require("./routes/travel")
 const wishlistRoute = require("./routes/wishlist");
 
 // const connection = mysql.createConnection({
@@ -21,6 +22,7 @@ server.use(cors());
 server.use(express.json());
 
 server.use("/users", usersRoute);
+server.use("/travel",travelRoute);
 server.use("/categories", categoriesRoute);
 server.use("/wishlist", wishlistRoute);
 

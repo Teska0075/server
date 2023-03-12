@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const connection = require("../config/db");
-const convertData = require("../utils/convertedData");
+const {convertQuery} = require("../utils/convertedData");
 
 const getUsers = (req, res) => {
   const query = `SELECT * FROM users`;
@@ -53,7 +53,7 @@ const putUserById = (req, res) => {
   const { id } = req.params;
   const body = req.body;
 
-  const parsedData = convertData(body);
+  const parsedData = convertQuery(body);
 
   const query = `UPDATE users SET ${parsedData} WHERE id=${id}`;
 
